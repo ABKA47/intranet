@@ -11,6 +11,7 @@ class NoteBookTable extends Component {
                             <th scope="col">Notebook Model</th>
                             <th scope="col">Serial No</th>
                             <th scope="col">Notebook Name</th>
+                            <th scope="col">AnyDesk ID</th>
                             <th scope="col">Owner</th>
                             <th scope="col">Owner Email</th>
                             <th scope="col">Owner Email For OTP</th>
@@ -25,6 +26,7 @@ class NoteBookTable extends Component {
                             <td>Dell Vostro 14</td>
                             <td>7RQR9H2</td>
                             <td>TBUKPC05</td>
+                            <td>606 765 180</td>
                             <td>Omer Ayan</td>
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>oayanuk@turkishbank.co.uk</td>
@@ -37,6 +39,7 @@ class NoteBookTable extends Component {
                             <td>Dell Vostro 14</td>
                             <td>7RQR9H2</td>
                             <td>TBUKPC05</td>
+                            <td>606 765 180</td>
                             <td>Omer Ayan</td>
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>oayanuk@turkishbank.co.uk</td>
@@ -49,6 +52,7 @@ class NoteBookTable extends Component {
                             <td>Dell Vostro 14</td>
                             <td>7RQR9H2</td>
                             <td>TBUKPC05</td>
+                            <td>606 765 180</td>
                             <td>Omer Ayan</td>
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>oayanuk@turkishbank.co.uk</td>

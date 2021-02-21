@@ -4,8 +4,8 @@ import { Route, Switch } from 'react-router-dom'
 //Import Components
 import Navbar from './components/Navigation/Navbar/Navbar'
 import Footer from './components/Navigation/Footer/Footer'
+import Home from './components/Home/Home'
 import NoteBookTable from './container/NoteBookTable/NoteBookTable'
-import AnydeskTable from './container/AnydeskTable/AnydeskTable'
 
 class App extends Component {
   render() {
@@ -13,8 +13,8 @@ class App extends Component {
       <div>
         <Navbar />
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route exact path="/notebooklist" component={NoteBookTable} />
-          <Route exact path="/anydesklist" component={AnydeskTable} />
         </Switch>
         <Footer />
       </div>
