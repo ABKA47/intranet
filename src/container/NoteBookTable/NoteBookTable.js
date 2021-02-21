@@ -1,10 +1,19 @@
 import React, { Component } from 'react'
 
+// Modal
+import Modal from '../../components/UI/Modal/Modal'
+
 class NoteBookTable extends Component {
     render() {
+        const showed = true
         return (
             <div className="container">
-                <table class="table table-hover">
+                <Modal show={showed}>
+                    <div>
+                        <h2>Hello World!</h2>
+                    </div>
+                </Modal>
+                <table className="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -18,6 +27,7 @@ class NoteBookTable extends Component {
                             <th scope="col">Notebook Delivery Date</th>
                             <th scope="col">Who has the notebook?</th>
                             <th scope="col">Notebook Status</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,6 +43,7 @@ class NoteBookTable extends Component {
                             <td>01.05.2017</td>
                             <td>User(Kullanicida Demek)</td>
                             <td>Working(Laptopun Durumu Calisiyor Demek)</td>
+                            <td><button type="button" className="btn btn-danger">Edit</button></td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
@@ -46,6 +57,7 @@ class NoteBookTable extends Component {
                             <td>01.05.2017</td>
                             <td>IT</td>
                             <td>Working</td>
+                            <td><button type="button" className="btn btn-danger">Edit</button></td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
@@ -59,6 +71,7 @@ class NoteBookTable extends Component {
                             <td>01.05.2017</td>
                             <td>IT(Geri Alindi Demek!)</td>
                             <td>Broken(Laptop Bozulmus Demek)</td>
+                            <td><button type="button" className="btn btn-danger">Edit</button></td>
                         </tr>
                     </tbody>
                 </table>
