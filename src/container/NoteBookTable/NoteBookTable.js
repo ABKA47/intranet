@@ -3,15 +3,19 @@ import React, { Component } from 'react'
 // Modal
 import Modal from '../../components/UI/Modal/Modal'
 
+// Notebook Modal Component
+import NotebookModal from './NotebookModal/NotebookModal'
+
+// Redux Actions
+import { connect } from 'react-redux'
+import * as actions from '../../store/actions/index'
+
 class NoteBookTable extends Component {
     render() {
-        const showed = true
         return (
             <div className="container">
-                <Modal show={showed}>
-                    <div>
-                        <h2>Hello World!</h2>
-                    </div>
+                <Modal show={this.props.show} modalClosed={this.props.onCloseModal}>
+                    <NotebookModal />
                 </Modal>
                 <table className="table table-hover">
                     <thead>
@@ -43,7 +47,7 @@ class NoteBookTable extends Component {
                             <td>01.05.2017</td>
                             <td>User(Kullanicida Demek)</td>
                             <td>Working(Laptopun Durumu Calisiyor Demek)</td>
-                            <td><button type="button" className="btn btn-danger">Edit</button></td>
+                            <td><button onClick={() => this.props.onOpenModal(1)} type="button" className="btn btn-danger">Edit</button></td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
@@ -80,4 +84,14 @@ class NoteBookTable extends Component {
     }
 }
 
-export default NoteBookTable
+const mapStateToProps = (state) => ({
+    show: state.notebookTable.show
+})
+
+const mapDispatchToProps = dispatch => ({
+    onOpenModal: (id) => dispatch(actions.notebookOpenModal(id)),
+    onCloseModal: () => dispatch(actions.notebookCloseModal())
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteBookTable)
