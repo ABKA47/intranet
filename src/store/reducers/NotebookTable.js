@@ -92,9 +92,9 @@ const initialState = {
             touched: false
         },
         notebookDeliveryDate: {
-            elementType: 'input',
+            elementType: 'date',
             elementConfig: {
-                type: 'text'
+                type: 'date'
             },
             value: '',
             validation: {
@@ -107,8 +107,8 @@ const initialState = {
             elementType: 'select',
             elementConfig: {
                 options: [
-                    { value: 'Working', displayValue: 'Working' },
-                    { value: 'Broken', displayValue: 'Broken' }
+                    { value: 'WORKING', displayValue: 'WORKING' },
+                    { value: 'BROKEN', displayValue: 'BROKEN' }
                 ]
             },
             value: '',
