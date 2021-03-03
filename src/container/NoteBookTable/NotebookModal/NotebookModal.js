@@ -16,7 +16,6 @@ export default class NotebookModal extends Component {
                             <th scope="col">Owner Email</th>
                             <th scope="col">Owner Email For OTP</th>
                             <th scope="col">Notebook Delivery Date</th>
-                            <th scope="col">Who has the notebook?</th>
                             <th scope="col">Notebook Status</th>
                             <th scope="col"></th>
                         </tr>
@@ -32,7 +31,6 @@ export default class NotebookModal extends Component {
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>01.05.2017</td>
-                            <td>User(Kullanicida Demek)</td>
                             <td>Working(Laptopun Durumu Calisiyor Demek)</td>
                             <td><button type="button" className="btn btn-danger">Edit</button></td>
                         </tr>

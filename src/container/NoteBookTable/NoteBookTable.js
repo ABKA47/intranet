@@ -13,7 +13,7 @@ import * as actions from '../../store/actions/index'
 class NoteBookTable extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="container-fluid">
                 <Modal show={this.props.show} modalClosed={this.props.onCloseModal}>
                     <NotebookModal />
                 </Modal>
@@ -29,7 +29,6 @@ class NoteBookTable extends Component {
                             <th scope="col">Owner Email</th>
                             <th scope="col">Owner Email For OTP</th>
                             <th scope="col">Notebook Delivery Date</th>
-                            <th scope="col">Who has the notebook?</th>
                             <th scope="col">Notebook Status</th>
                             <th scope="col"></th>
                         </tr>
@@ -45,8 +44,7 @@ class NoteBookTable extends Component {
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>01.05.2017</td>
-                            <td>User(Kullanicida Demek)</td>
-                            <td>Working(Laptopun Durumu Calisiyor Demek)</td>
+                            <td>Working</td>
                             <td><button onClick={() => this.props.onOpenModal(1)} type="button" className="btn btn-danger">Edit</button></td>
                         </tr>
                         <tr>
@@ -59,7 +57,6 @@ class NoteBookTable extends Component {
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>01.05.2017</td>
-                            <td>IT</td>
                             <td>Working</td>
                             <td><button type="button" className="btn btn-danger">Edit</button></td>
                         </tr>
@@ -73,8 +70,7 @@ class NoteBookTable extends Component {
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>oayanuk@turkishbank.co.uk</td>
                             <td>01.05.2017</td>
-                            <td>IT(Geri Alindi Demek!)</td>
-                            <td>Broken(Laptop Bozulmus Demek)</td>
+                            <td>Broken</td>
                             <td><button type="button" className="btn btn-danger">Edit</button></td>
                         </tr>
                     </tbody>
