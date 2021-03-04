@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 
-export default class NotebookModal extends Component {
+// Redux Actions
+import { connect } from 'react-redux'
+import * as actions from '../../../store/actions/index'
+
+// UI
+
+
+class NotebookModal extends Component {
     render() {
-        return (
+        let notebookList = (
             <form>
                 <table className="table table-hover">
                     <thead>
@@ -22,21 +29,36 @@ export default class NotebookModal extends Component {
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Dell Vostro 14</td>
-                            <td>7RQR9H2</td>
-                            <td>TBUKPC05</td>
-                            <td>606 765 180</td>
-                            <td>Omer Ayan</td>
-                            <td>oayanuk@turkishbank.co.uk</td>
-                            <td>oayanuk@turkishbank.co.uk</td>
-                            <td>01.05.2017</td>
-                            <td>Working(Laptopun Durumu Calisiyor Demek)</td>
-                            <td><button type="button" className="btn btn-danger">Edit</button></td>
+
+                            {this.props.notebookListFilter.map(nbList => (
+                                <>
+                                    <th scope="row">{nbList.notebookID}</th>
+                                    <td>{nbList.notebookModal}</td>
+                                </>
+                            ))
+                            }
+                            <td><button type="button" className="btn btn-primary">Submit</button></td>
                         </tr>
+
                     </tbody>
                 </table>
             </form>
         )
+        return (
+            <div>
+                {notebookList}
+            </div>
+        )
     }
 }
+
+const mapStateToProps = (state) => ({
+    notebookListFilter: state.notebookTable.notebookListFilter,
+})
+
+const mapDispatchToProps = dispatch => ({
+
+})
+
+
+export default connect(mapStateToProps)(NotebookModal)
