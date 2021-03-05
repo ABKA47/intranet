@@ -5,16 +5,43 @@ import { connect } from 'react-redux'
 import * as actions from '../../../store/actions/index'
 
 // UI
-
+import Input from '../../../components/UI/Input/Input'
 
 class NotebookModal extends Component {
+    inputChangedHandler = (event, inputIdentifier) => {
+        const updatedNotebook = { ...this.props.updateNotebookTable }
+        const updatedNotebookID = { ...updatedNotebook[inputIdentifier] }
+        updatedNotebookID.value = event.target.value
+        updatedNotebook[inputIdentifier] = updatedNotebookID
+        this.props.onUpdateNotebookState(updatedNotebook)
+    }
+
+    formSubmit = (event) => {
+        event.preventDefault()
+        let updatedNotebook = {}
+        for (let key in this.props.updateNotebookTable) {
+            updatedNotebook[key] = this.props.updateNotebookTable[key].value
+        }
+        const updatedNotebookLast = { updatedNotebook }
+        console.log("ID :", updatedNotebookLast)
+        this.props.onUpdateNotebookList(updatedNotebookLast.updatedNotebook)
+    }
+
     render() {
-        let notebookList = (
+        // const notebookList = this.props.notebookListFilter.map(key => {
+        let notebookArray = []
+        for (let key in this.props.updateNotebookTable) {
+            notebookArray.push({
+                id: key,
+                config: this.props.updateNotebookTable[key]
+            })
+        }
+        const notebookList = (
             <form>
                 <table className="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th>#</th>
                             <th scope="col">Notebook Model</th>
                             <th scope="col">Serial No</th>
                             <th scope="col">Notebook Name</th>
@@ -29,21 +56,30 @@ class NotebookModal extends Component {
                     </thead>
                     <tbody>
                         <tr>
-
-                            {this.props.notebookListFilter.map(nbList => (
-                                <>
-                                    <th scope="row">{nbList.notebookID}</th>
-                                    <td>{nbList.notebookModal}</td>
-                                </>
+                            {notebookArray.map(nbList => (
+                                <td key={nbList.id}>
+                                    <Input
+                                        key={nbList.id}
+                                        elementType={nbList.config.elementType}
+                                        elementConfig={nbList.config.elementConfig}
+                                        value={nbList.config.value}
+                                        id={nbList.config.id}
+                                        invalid={!nbList.config.validation}
+                                        shouldValidate={nbList.config.validation}
+                                        touched={nbList.config.touched}
+                                        onChange={(event) => this.inputChangedHandler(event, nbList.id)}
+                                    />
+                                </td>
                             ))
                             }
-                            <td><button type="button" className="btn btn-primary">Submit</button></td>
+                            <td></td>
                         </tr>
-
                     </tbody>
                 </table>
+                <button onClick={(event) => this.formSubmit(event)} type="button" className="btn btn-primary">Submit</button>
             </form>
         )
+        //   })
         return (
             <div>
                 {notebookList}
@@ -54,11 +90,13 @@ class NotebookModal extends Component {
 
 const mapStateToProps = (state) => ({
     notebookListFilter: state.notebookTable.notebookListFilter,
+    updateNotebookTable: state.notebookTable.updateNotebookTable
 })
 
 const mapDispatchToProps = dispatch => ({
-
+    onUpdateNotebookState: (updatedNotebook) => dispatch(actions.updateNotebookState(updatedNotebook)),
+    onUpdateNotebookList: (updateNotebookList) => dispatch(actions.updateNotebooklist(updateNotebookList))
 })
 
 
-export default connect(mapStateToProps)(NotebookModal)
+export default connect(mapStateToProps, mapDispatchToProps)(NotebookModal)

@@ -1,4 +1,7 @@
 export {
     notebookOpenModal,
-    notebookCloseModal
+    notebookCloseModal,
+    updateNotebookState,
+    fetchNotebookLists,
+    updateNotebooklist
 } from './NoteBookTable'

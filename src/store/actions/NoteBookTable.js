@@ -14,10 +14,40 @@ export const notebookCloseModal = () => {
     }
 }
 
+export const updateNotebookState = (updatedNotebook) => {
+    return {
+        type: actionTypes.NOTEBOOK_UPDATE_STATE,
+        updatedNotebook: updatedNotebook
+    }
+}
+
 export const fetchNotebookList = (notebookList) => {
     return {
         type: actionTypes.FETCHNOTEBOOKLIST,
         NotebookList: notebookList
+    }
+}
+
+export const fetchNotebookLists = () => {
+    return dispatch => {
+        const API_URL_FETCHNOTEBOOK = 'api/notebooklist'
+        axios.get(API_URL_FETCHNOTEBOOK).then(response => {
+            dispatch(fetchNotebookList(response.data))
+        })
+    }
+}
+
+export const addNotebook = (notebook) => {
+    return dispatch => {
+        const API_URL_ADDNOTEBOOK = 'api/addnotebook'
+        axios.post(API_URL_ADDNOTEBOOK, notebook)
+    }
+}
+
+export const updateNotebooklist = (notebook) => {
+    return dispatch => {
+        const API_URL_UPDATENOTEBOOK = 'api/update'
+        axios.post(API_URL_UPDATENOTEBOOK, notebook)
     }
 }
 
