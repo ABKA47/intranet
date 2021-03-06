@@ -3,14 +3,7 @@ import { updatedObject } from '../utility'
 
 const initialState = {
     addNotebookTable: {
-        notebookID: {
-            elementType: 'label',
-            elementConfig: {
-                type: 'text'
-            },
-            value:'',
-        },
-        notebookModel: {
+        notebookModal: {
             elementType: 'input',
             elementConfig: {
                 type: 'text'
@@ -18,9 +11,11 @@ const initialState = {
             value: '',
             validation: {
                 required: true,
+                isLetter: true,
             },
-            valid: true,
-            touched: false
+            valid: false,
+            touched: false,
+            placeholder: 'Notebook Modal'
         },
         notebookSerialNo: {
             elementType: 'input',
@@ -31,8 +26,9 @@ const initialState = {
             validation: {
                 required: true,
             },
-            valid: true,
-            touched: false
+            valid: false,
+            touched: false,
+            placeholder: 'Notebook Serial No'
         },
         notebookName: {
             elementType: 'input',
@@ -43,10 +39,11 @@ const initialState = {
             validation: {
                 required: true,
             },
-            valid: true,
-            touched: false
+            valid: false,
+            touched: false,
+            placeholder: 'Notebook Name'
         },
-        anyDeskID: {
+        anydeskID: {
             elementType: 'input',
             elementConfig: {
                 type: 'text'
@@ -56,8 +53,9 @@ const initialState = {
                 required: true,
                 isNumeric: true
             },
-            valid: true,
-            touched: false
+            valid: false,
+            touched: false,
+            placeholder: 'AnyDesk ID'
         },
         owner: {
             elementType: 'input',
@@ -69,10 +67,11 @@ const initialState = {
                 required: true,
                 isLetter: true
             },
-            valid: true,
-            touched: false
+            valid: false,
+            touched: false,
+            placeholder: 'Owner Name'
         },
-        emailOwner: {
+        ownerMail: {
             elementType: 'input',
             elementConfig: {
                 type: 'text'
@@ -82,10 +81,11 @@ const initialState = {
                 required: true,
                 isMail: true
             },
-            valid: true,
-            touched: false
+            valid: false,
+            touched: false,
+            placeholder: 'Owner Mail'
         },
-        emailForOTP: {
+        ownerOTP: {
             elementType: 'input',
             elementConfig: {
                 type: 'text'
@@ -95,10 +95,11 @@ const initialState = {
                 required: true,
                 isMail: true
             },
-            valid: true,
-            touched: false
+            valid: false,
+            touched: false,
+            placeholder: 'Owner Mail for OTP'
         },
-        notebookDeliveryDate: {
+        deliveryDate: {
             elementType: 'date',
             elementConfig: {
                 type: 'date'
@@ -107,8 +108,9 @@ const initialState = {
             validation: {
                 required: true,
             },
-            valid: true,
-            touched: false
+            valid: false,
+            touched: false,
+            placeholder: 'Dalivery Date'
         },
         notebookStatus: {
             elementType: 'select',
@@ -118,8 +120,7 @@ const initialState = {
                     { value: 'BROKEN', displayValue: 'BROKEN' }
                 ]
             },
-            value: '',
-            validation: {},
+            value: 'WORKING',
             valid: true,
         },
     },
@@ -129,9 +130,9 @@ const initialState = {
             elementConfig: {
                 type: 'text'
             },
-            value:'',
+            value: '',
         },
-        notebookModel: {
+        notebookModal: {
             elementType: 'input',
             elementConfig: {
                 type: 'text'
@@ -167,7 +168,7 @@ const initialState = {
             valid: true,
             touched: false
         },
-        anyDeskID: {
+        anydeskID: {
             elementType: 'input',
             elementConfig: {
                 type: 'text'
@@ -193,7 +194,7 @@ const initialState = {
             valid: true,
             touched: false
         },
-        emailOwner: {
+        ownerMail: {
             elementType: 'input',
             elementConfig: {
                 type: 'text'
@@ -206,7 +207,7 @@ const initialState = {
             valid: true,
             touched: false
         },
-        emailForOTP: {
+        ownerOTP: {
             elementType: 'input',
             elementConfig: {
                 type: 'text'
@@ -219,7 +220,7 @@ const initialState = {
             valid: true,
             touched: false
         },
-        notebookDeliveryDate: {
+        deliveryDate: {
             elementType: 'date',
             elementConfig: {
                 type: 'date'
@@ -247,20 +248,21 @@ const initialState = {
     notebookList: [],
     notebookListFilter: [],
     notebookListModal: [],
-    show: false
+    show: false,
+    formIsValid: false
 }
 
 const notebookOpenModal = (state, action) => {
     let modalNotebook = state.notebookList.filter(notebookList => notebookList.notebookID === action.NotebookID)
     state.updateNotebookTable.notebookID.value = modalNotebook[0].notebookID
-    state.updateNotebookTable.notebookModel.value = modalNotebook[0].notebookModal
+    state.updateNotebookTable.notebookModal.value = modalNotebook[0].notebookModal
     state.updateNotebookTable.notebookSerialNo.value = modalNotebook[0].notebookSerialNo
     state.updateNotebookTable.notebookName.value = modalNotebook[0].notebookName
-    state.updateNotebookTable.anyDeskID.value = modalNotebook[0].anydeskID
+    state.updateNotebookTable.anydeskID.value = modalNotebook[0].anydeskID
     state.updateNotebookTable.owner.value = modalNotebook[0].owner
-    state.updateNotebookTable.emailOwner.value = modalNotebook[0].ownerMail
-    state.updateNotebookTable.emailForOTP.value = modalNotebook[0].ownerOTP
-    state.updateNotebookTable.notebookDeliveryDate.value = modalNotebook[0].deliveryDate
+    state.updateNotebookTable.ownerMail.value = modalNotebook[0].ownerMail
+    state.updateNotebookTable.ownerOTP.value = modalNotebook[0].ownerOTP
+    state.updateNotebookTable.deliveryDate.value = modalNotebook[0].deliveryDate
     state.updateNotebookTable.notebookStatus.value = modalNotebook[0].notebookStatus
     return updatedObject(state, { notebookListFilter: modalNotebook, show: true })
 }
@@ -273,6 +275,10 @@ const updateNotebookState = (state, action) => {
     return updatedObject(state, { updateNotebookTable: action.updatedNotebook })
 }
 
+const updateNotebookAddState = (state, action) => {
+    return updatedObject(state, { addNotebookTable: action.updatedNotebookAdd, formIsValid: action.formIsValid })
+}
+
 const fetchNotebookList = (state, action) => {
     return updatedObject(state, { notebookList: action.NotebookList })
 }
@@ -282,6 +288,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.NOTEBOOK_OPENMODAL: return notebookOpenModal(state, action)
         case actionTypes.NOTEBOOK_CLOSEMODAL: return notebookCloseModal(state, action)
         case actionTypes.NOTEBOOK_UPDATE_STATE: return updateNotebookState(state, action)
+        case actionTypes.NOTEBOOK_UPDATE_ADD_STATE: return updateNotebookAddState(state, action)
         case actionTypes.FETCHNOTEBOOKLIST: return fetchNotebookList(state, action)
         default: return state
     }

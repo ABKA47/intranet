@@ -5,6 +5,7 @@ import Modal from '../../components/UI/Modal/Modal'
 
 // Notebook Modal Component
 import NotebookModal from './NotebookModal/NotebookModal'
+import NoteBooktableAdd from './NoteBookTableAdd/NoteBooktableAdd'
 
 // Redux Actions
 import { connect } from 'react-redux'
@@ -17,7 +18,7 @@ class NoteBookTable extends Component {
 
     render() {
         let notebookList = (
-            <table className="container table table-hover">
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -55,11 +56,19 @@ class NoteBookTable extends Component {
         )
 
         return (
-            <div className="container-fluid">
-                <Modal show={this.props.show} modalClosed={this.props.onCloseModal}>
-                    <NotebookModal />
-                </Modal>
-                {notebookList}
+            <div>
+                <div className="container">
+                    <Modal show={this.props.show} modalClosed={this.props.onCloseModal}>
+                        <NotebookModal />
+                    </Modal>
+                    <div className="card mt-4 mb-3" style={{ widthRight: '18rem' }}>
+                        <div className="card-header">
+                            Add New Notebook please!!
+                    </div>
+                        <div className="container m-2"><NoteBooktableAdd /></div>
+                    </div>
+                </div>
+                <div className="container-fluid">{notebookList}</div>
             </div>
         )
     }

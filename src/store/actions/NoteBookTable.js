@@ -21,6 +21,14 @@ export const updateNotebookState = (updatedNotebook) => {
     }
 }
 
+export const updateNotebookAddState = (updatedNotebookAdd, formIsValid) => {
+    return {
+        type: actionTypes.NOTEBOOK_UPDATE_ADD_STATE,
+        updatedNotebookAdd: updatedNotebookAdd,
+        formIsValid: formIsValid
+    }
+}
+
 export const fetchNotebookList = (notebookList) => {
     return {
         type: actionTypes.FETCHNOTEBOOKLIST,

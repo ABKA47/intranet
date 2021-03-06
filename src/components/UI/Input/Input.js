@@ -13,7 +13,7 @@ const Input = (props) => {
     switch (props.elementType) {
         case ('input'):
             inputElement = <input
-                className={inputClasses.join(' ')}
+                className="form-control"
                 style={props.style}
                 {...props.elementConfig}
                 value={props.value}
@@ -24,7 +24,7 @@ const Input = (props) => {
             break;
         case ('select'):
             inputElement = <select
-                className={inputClasses.join(' ')}
+                className="form-select"
                 style={props.style}
                 {...props.elementConfig}
                 value={props.value}
@@ -41,7 +41,7 @@ const Input = (props) => {
             break;
         case ('date'):
             inputElement = <input
-                className={inputClasses.join(' ')}
+                className="form-control"
                 style={props.style}
                 {...props.elementConfig}
                 value={props.value}

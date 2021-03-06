@@ -22,9 +22,8 @@ class NotebookModal extends Component {
         for (let key in this.props.updateNotebookTable) {
             updatedNotebook[key] = this.props.updateNotebookTable[key].value
         }
-        const updatedNotebookLast = { updatedNotebook }
-        console.log("ID :", updatedNotebookLast)
-        this.props.onUpdateNotebookList(updatedNotebookLast.updatedNotebook)
+        console.log("ID :", updatedNotebook)
+        this.props.onUpdateNotebookList(updatedNotebook)
     }
 
     render() {
