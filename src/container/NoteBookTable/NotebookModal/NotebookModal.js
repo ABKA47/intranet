@@ -17,13 +17,16 @@ class NotebookModal extends Component {
     }
 
     formSubmit = (event) => {
-        event.preventDefault()
         let updatedNotebook = {}
         for (let key in this.props.updateNotebookTable) {
             updatedNotebook[key] = this.props.updateNotebookTable[key].value
         }
         console.log("ID :", updatedNotebook)
         this.props.onUpdateNotebookList(updatedNotebook)
+        this.props.onCloseModal()
+        // Have to refresh page because AJAX cannot read properties after update immediately
+        window.location.reload();
+
     }
 
     render() {
@@ -94,7 +97,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
     onUpdateNotebookState: (updatedNotebook) => dispatch(actions.updateNotebookState(updatedNotebook)),
-    onUpdateNotebookList: (updateNotebookList) => dispatch(actions.updateNotebooklist(updateNotebookList))
+    onUpdateNotebookList: (updateNotebookList) => dispatch(actions.updateNotebooklist(updateNotebookList)),
+    onCloseModal: () => dispatch(actions.notebookCloseModal())
 })
 
 
