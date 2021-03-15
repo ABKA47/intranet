@@ -72,7 +72,7 @@ class NoteBooktableAdd extends Component {
             <form onSubmit={this.formSubmit}>
                 {
                     notebookArray.map(newNB => (
-                        <div className="container m-2">
+                        <div key={newNB.id} className="container m-2">
                             <Input
                                 key={newNB.id}
                                 elementType={newNB.config.elementType}
