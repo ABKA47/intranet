@@ -6,9 +6,7 @@ import * as actions from '../../../store/actions/index'
 
 // UI
 import Input from '../../../components/UI/Input/Input'
-import { ToastContainer, toast } from 'react-toastify';
 
-toast.configure()
 class NoteBooktableAdd extends Component {
 
     checkValidation(value, rules) {
@@ -87,15 +85,7 @@ class NoteBooktableAdd extends Component {
                         </div>
                     ))
                 }
-                <button
-                    onClick={
-                        () => toast.success("The Notebook has been added to the list!",
-                            {
-                                position: toast.POSITION.TOP_RIGHT,
-                                autoClose: 8000
-                            }
-                        )}
-                    disabled={!this.props.formIsValid} type="btn" className="container btn btn-primary">SUBMIT</button>
+                <button disabled={!this.props.formIsValid} type="btn" className="container btn btn-primary">SUBMIT</button>
             </form>
         )
         return (
