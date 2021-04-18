@@ -11,7 +11,6 @@ const initialState = {
             value: '',
             validation: {
                 required: true,
-                isLetter: true,
             },
             valid: false,
             touched: false,
