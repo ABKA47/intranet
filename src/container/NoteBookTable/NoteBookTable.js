@@ -11,6 +11,12 @@ import NoteBooktableAdd from './NoteBookTableAdd/NoteBooktableAdd'
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index'
 
+// React Icon
+import { AiOutlineCopy } from 'react-icons/ai'
+
+// React Clipboard
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+
 class NoteBookTable extends Component {
     componentDidMount() {
         this.props.onFetchNotebookList()
@@ -24,7 +30,7 @@ class NoteBookTable extends Component {
                     placeholder="Search..."
                     className="form-control"
                     style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
-                    onChange = {(event) => this.props.onChangeSearchFilter(event.target.value)}
+                    onChange={(event) => this.props.onChangeSearchFilter(event.target.value)}
                 />
                 <table className="table table-hover">
                     <thead>
@@ -49,7 +55,7 @@ class NoteBookTable extends Component {
                                 <td>{nbList.notebookModal}</td>
                                 <td>{nbList.notebookSerialNo}</td>
                                 <td>{nbList.notebookName}</td>
-                                <td>{nbList.anydeskID}</td>
+                                <td>{nbList.anydeskID}<CopyToClipboard text={nbList.anydeskID}><AiOutlineCopy /></CopyToClipboard></td>
                                 <td>{nbList.owner}</td>
                                 <td>{nbList.ownerMail}</td>
                                 <td>{nbList.ownerOTP}</td>
