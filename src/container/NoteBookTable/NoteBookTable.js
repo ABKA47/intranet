@@ -55,7 +55,7 @@ class NoteBookTable extends Component {
                                 <td>{nbList.notebookModal}</td>
                                 <td>{nbList.notebookSerialNo}</td>
                                 <td>{nbList.notebookName}</td>
-                                <td>{nbList.anydeskID}<CopyToClipboard text={nbList.anydeskID}><AiOutlineCopy/></CopyToClipboard></td>
+                                <td>{nbList.anydeskID}<CopyToClipboard text={nbList.anydeskID}><AiOutlineCopy onClick={() => alert(`Copied '${nbList.anydeskID}' ID to Clipboard!`)} /></CopyToClipboard></td>
                                 <td>{nbList.owner}</td>
                                 <td>{nbList.ownerMail}</td>
                                 <td>{nbList.ownerOTP}</td>
