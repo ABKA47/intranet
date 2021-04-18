@@ -248,6 +248,7 @@ const initialState = {
     notebookList: [],
     notebookListFilter: [],
     notebookListModal: [],
+    notebookSearched: [],
     show: false,
     formIsValid: false
 }
@@ -280,7 +281,12 @@ const updateNotebookAddState = (state, action) => {
 }
 
 const fetchNotebookList = (state, action) => {
-    return updatedObject(state, { notebookList: action.NotebookList })
+    return updatedObject(state, { notebookList: action.NotebookList, notebookSearched: action.NotebookList })
+}
+
+const changeSearchFilter = (state, action) => {
+    let searchedItem = state.notebookList.filter(value => value.owner.toLowerCase().includes(action.searchItem.toLowerCase()))
+    return updatedObject(state, {notebookSearched: searchedItem})
 }
 
 const reducer = (state = initialState, action) => {
@@ -290,6 +296,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.NOTEBOOK_UPDATE_STATE: return updateNotebookState(state, action)
         case actionTypes.NOTEBOOK_UPDATE_ADD_STATE: return updateNotebookAddState(state, action)
         case actionTypes.FETCHNOTEBOOKLIST: return fetchNotebookList(state, action)
+        case actionTypes.NOTEBOOK_SEARCH_ITEM: return changeSearchFilter(state, action)
         default: return state
     }
 }

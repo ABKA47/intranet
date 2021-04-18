@@ -5,5 +5,6 @@ export {
     updateNotebookAddState,
     fetchNotebookLists,
     updateNotebooklist,
-    addNotebook
+    addNotebook,
+    changeSearchFilter
 } from './NoteBookTable'

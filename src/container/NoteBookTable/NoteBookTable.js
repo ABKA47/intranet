@@ -18,41 +18,50 @@ class NoteBookTable extends Component {
 
     render() {
         let notebookList = (
-            <table className="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Notebook Model</th>
-                        <th scope="col">Serial No</th>
-                        <th scope="col">Notebook Name</th>
-                        <th scope="col">AnyDesk ID</th>
-                        <th scope="col">Owner</th>
-                        <th scope="col">Owner Email</th>
-                        <th scope="col">Owner Email For OTP</th>
-                        <th scope="col">Notebook Delivery Date</th>
-                        <th scope="col">Notebook Status</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.props.notebookList.map(nbList => (
-                        <tr key={nbList.notebookID}>
-                            <th scope="row">{nbList.notebookID}</th>
-                            <td>{nbList.notebookModal}</td>
-                            <td>{nbList.notebookSerialNo}</td>
-                            <td>{nbList.notebookName}</td>
-                            <td>{nbList.anydeskID}</td>
-                            <td>{nbList.owner}</td>
-                            <td>{nbList.ownerMail}</td>
-                            <td>{nbList.ownerOTP}</td>
-                            <td>{nbList.deliveryDate}</td>
-                            <td>{nbList.notebookStatus}</td>
-                            <td><button onClick={() => this.props.onOpenModal(nbList.notebookID)} type="button" className="btn btn-danger">Edit</button></td>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    className="form-control"
+                    style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
+                    onChange = {(event) => this.props.onChangeSearchFilter(event.target.value)}
+                />
+                <table className="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Notebook Model</th>
+                            <th scope="col">Serial No</th>
+                            <th scope="col">Notebook Name</th>
+                            <th scope="col">AnyDesk ID</th>
+                            <th scope="col">Owner</th>
+                            <th scope="col">Owner Email</th>
+                            <th scope="col">Owner Email For OTP</th>
+                            <th scope="col">Notebook Delivery Date</th>
+                            <th scope="col">Notebook Status</th>
+                            <th scope="col"></th>
                         </tr>
-                    ))
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {this.props.notebookSearched.map(nbList => (
+                            <tr key={nbList.notebookID}>
+                                <th scope="row">{nbList.notebookID}</th>
+                                <td>{nbList.notebookModal}</td>
+                                <td>{nbList.notebookSerialNo}</td>
+                                <td>{nbList.notebookName}</td>
+                                <td>{nbList.anydeskID}</td>
+                                <td>{nbList.owner}</td>
+                                <td>{nbList.ownerMail}</td>
+                                <td>{nbList.ownerOTP}</td>
+                                <td>{nbList.deliveryDate}</td>
+                                <td>{nbList.notebookStatus}</td>
+                                <td><button onClick={() => this.props.onOpenModal(nbList.notebookID)} type="button" className="btn btn-danger">Edit</button></td>
+                            </tr>
+                        ))
+                        }
+                    </tbody>
+                </table>
+            </div>
         )
 
         return (
@@ -76,13 +85,14 @@ class NoteBookTable extends Component {
 
 const mapStateToProps = (state) => ({
     show: state.notebookTable.show,
-    notebookList: state.notebookTable.notebookList
+    notebookSearched: state.notebookTable.notebookSearched
 })
 
 const mapDispatchToProps = dispatch => ({
     onOpenModal: (id) => dispatch(actions.notebookOpenModal(id)),
     onCloseModal: () => dispatch(actions.notebookCloseModal()),
-    onFetchNotebookList: () => dispatch(actions.fetchNotebookLists())
+    onFetchNotebookList: () => dispatch(actions.fetchNotebookLists()),
+    onChangeSearchFilter: (searchItem) => dispatch(actions.changeSearchFilter(searchItem))
 })
 
 

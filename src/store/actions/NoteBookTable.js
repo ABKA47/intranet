@@ -29,6 +29,13 @@ export const updateNotebookAddState = (updatedNotebookAdd, formIsValid) => {
     }
 }
 
+export const changeSearchFilter = (searchItem) => {
+    return {
+        type: actionTypes.NOTEBOOK_SEARCH_ITEM,
+        searchItem: searchItem
+    }
+}
+
 export const fetchNotebookList = (notebookList) => {
     return {
         type: actionTypes.FETCHNOTEBOOKLIST,
