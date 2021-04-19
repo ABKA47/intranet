@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 
 // Modal
 import Modal from '../../components/UI/Modal/Modal'
@@ -59,7 +60,7 @@ class NoteBookTable extends Component {
                                 <td>{nbList.owner}</td>
                                 <td>{nbList.ownerMail}</td>
                                 <td>{nbList.ownerOTP}</td>
-                                <td>{nbList.deliveryDate}</td>
+                                <td>{moment(nbList.deliveryDate).format('DD/MM/YYYY')}</td>
                                 <td>{nbList.notebookStatus}</td>
                                 <td><button onClick={() => this.props.onOpenModal(nbList.notebookID)} type="button" className="btn btn-danger">Edit</button></td>
                             </tr>
