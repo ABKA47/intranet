@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 // CSS 
-import logo from '../../../logo.svg';
+import logo from '../../../img/turkishbank.png';
 import classes from './App.css'
 
 export default class Navbar extends Component {

@@ -28,7 +28,7 @@ class NoteBookTable extends Component {
             <div>
                 <input
                     type="text"
-                    placeholder="Search..."
+                    placeholder="Search by Owner"
                     className="form-control"
                     style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
                     onChange={(event) => this.props.onChangeSearchFilter(event.target.value)}
@@ -81,7 +81,9 @@ class NoteBookTable extends Component {
                         <div className="card-header">
                             Add New Notebook please!!
                     </div>
-                        <div className="container m-2"><NoteBooktableAdd /></div>
+                        <div className="container m-2">
+                            <NoteBooktableAdd />
+                        </div>
                     </div>
                 </div>
                 <div className="container-fluid">{notebookList}</div>
