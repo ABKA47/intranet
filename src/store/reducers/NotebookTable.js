@@ -284,7 +284,7 @@ const fetchNotebookList = (state, action) => {
 }
 
 const changeSearchFilter = (state, action) => {
-    let searchedItem = state.notebookList.filter(value => value.owner.toLowerCase().includes(action.searchItem.toLowerCase()))
+    let searchedItem = state.notebookList.filter(value => value.userName.toLowerCase().includes(action.searchItem.toLowerCase()))
     return updatedObject(state, {notebookSearched: searchedItem})
 }
 

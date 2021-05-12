@@ -1,6 +1,13 @@
 import * as actionTypes from '../actions/actionTypes'
 import axios from '../../axios'
 
+export const telephoneSearchFilter = (searchTelItem) => {
+    return {
+        type: actionTypes.SEARCHTELEPHONEITEM,
+        searchTelItem: searchTelItem
+    }
+}
+
 export const fetchTelephoneList = (telephoneList) => {
     return{
         type: actionTypes.FETCHTELEPHONELIST,

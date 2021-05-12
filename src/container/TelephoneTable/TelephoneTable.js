@@ -8,14 +8,15 @@ class TelephoneTable extends Component {
     }
 
     render() {
-        return (
-            <div className="container">
+
+        let telephoneList = (
+            <div>
                 <input
                     type="text"
                     placeholder="Search by Name"
                     className="form-control"
                     style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
-                    // onChange={(event) => this.props.onChangeSearchFilter(event.target.value)}
+                    onChange={(event) => this.props.onChangeTelSearchFilter(event.target.value)}
                 />
                 <table className="table table-hover">
                     <thead style={{ backgroundColor: "#dc6114" }} >
@@ -31,7 +32,7 @@ class TelephoneTable extends Component {
                     </thead>
                     <tbody>
                         {
-                            this.props.telephoneList.map(tel => (
+                            this.props.telephoneSearched.map(tel => (
                                 <tr key={tel.telephoneID}>
                                     <td>{tel.telephoneID}</td>
                                     <td>{tel.userName}</td>
@@ -45,18 +46,23 @@ class TelephoneTable extends Component {
                         }
                     </tbody>
                 </table>
+            </div>)
 
+        return (
+            <div className="container">
+                {telephoneList}
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    telephoneList: state.telephoneTable.telephoneList
+    telephoneSearched: state.telephoneTable.telephoneSearched
 })
 
 const mapDispatchToProps = dispatch => ({
-    onFetchTelephoneList: () => dispatch(actions.fetchTelephoneLists())
+    onFetchTelephoneList: () => dispatch(actions.fetchTelephoneLists()),
+    onChangeTelSearchFilter: (searchTelItem) => dispatch(actions.telephoneSearchFilter(searchTelItem))
 })
 
 
