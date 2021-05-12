@@ -6,12 +6,13 @@ import Navbar from './components/Navigation/Navbar/Navbar'
 import Footer from './components/Navigation/Footer/Footer'
 import Home from './components/Home/Home'
 import NoteBookTable from './container/NoteBookTable/NoteBookTable'
+import TelephoneTable from './container/TelephoneTable/TelephoneTable'
 import Login from './container/Login/Login'
 
 class App extends Component {
   render() {
 
-    
+
 
     return (
       <div>
@@ -19,6 +20,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/notebooklist" component={NoteBookTable} />
+          <Route exact path="/telephonelist" component={TelephoneTable} />
           <Route exact path="/login" component={Login} />
         </Switch>
         <Footer />

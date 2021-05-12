@@ -8,3 +8,7 @@ export {
     addNotebook,
     changeSearchFilter
 } from './NoteBookTable'
+
+export {
+    fetchTelephoneLists,
+} from './TelephoneTable' 

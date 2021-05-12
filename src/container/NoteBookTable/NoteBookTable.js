@@ -13,7 +13,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index'
 
 // React Icon
-import { AiOutlineCopy } from 'react-icons/ai'
+import { AiOutlineCopy, AiOutlinePlus } from 'react-icons/ai'
 
 // React Clipboard
 import { CopyToClipboard } from 'react-copy-to-clipboard'
@@ -26,13 +26,16 @@ class NoteBookTable extends Component {
     render() {
         let notebookList = (
             <div>
-                <input
-                    type="text"
-                    placeholder="Search by Owner"
-                    className="form-control"
-                    style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
-                    onChange={(event) => this.props.onChangeSearchFilter(event.target.value)}
-                />
+                <div className="row">
+                    <input
+                        type="text"
+                        placeholder="Search by Owner"
+                        className="form-control"
+                        style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
+                        onChange={(event) => this.props.onChangeSearchFilter(event.target.value)}
+                    />
+                    <button className="btn btn-primary" style={{ marginTop: 50, marginBottom: 20, marginLeft: 10, width: "10%" }}><AiOutlinePlus /> New Notebook</button>
+                </div>
                 <table className="table table-hover">
                     <thead>
                         <tr>

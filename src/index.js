@@ -10,9 +10,11 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 
 // Our Reducers
 import NotebookTable from './store/reducers/NotebookTable'
+import TelephoneTable from './store/reducers/TelephoneTable';
 
 const rootReducer = combineReducers({
-  notebookTable: NotebookTable
+  notebookTable: NotebookTable,
+  telephoneTable: TelephoneTable
 })
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
