@@ -27,14 +27,17 @@ class NoteBookTable extends Component {
         let notebookList = (
             <div>
                 <div className="row">
-                    <input
-                        type="text"
-                        placeholder="Search by Owner"
-                        className="form-control"
-                        style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
-                        onChange={(event) => this.props.onChangeSearchFilter(event.target.value)}
-                    />
-                    <button className="btn btn-primary" style={{ marginTop: 50, marginBottom: 20, marginLeft: 10, width: "10%" }}><AiOutlinePlus /> New Notebook</button>
+                    <div className="col-sm-12 col-md-6">
+                        <input
+                            type="text"
+                            placeholder="Search by Owner"
+                            className="form-control col-sm-6"
+                            // style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
+                            onChange={(event) => this.props.onChangeSearchFilter(event.target.value)}
+                        /></div>
+                    <div className="col-sm-12 col-md-6">
+                        <button className="btn btn-primary"><AiOutlinePlus /> New Notebook</button>
+                    </div>
                 </div>
                 <table className="table table-hover">
                     <thead>

@@ -11,13 +11,18 @@ class TelephoneTable extends Component {
 
         let telephoneList = (
             <div>
-                <input
-                    type="text"
-                    placeholder="Search by Name"
-                    className="form-control"
-                    style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
-                    onChange={(event) => this.props.onChangeTelSearchFilter(event.target.value)}
-                />
+                <div className="row">
+                    <div className="mt-3 mb-3 col-md-6">
+                        <input
+                            type="text"
+                            placeholder="Search by Name"
+                            className="form-control"
+                            // style={{ marginTop: 50, marginBottom: 20, width: "40%" }}
+                            onChange={(event) => this.props.onChangeTelSearchFilter(event.target.value)}
+                        />
+                    </div>
+                </div>
+
                 <table className="table table-hover">
                     <thead style={{ backgroundColor: "#dc6114" }} >
                         <tr>
