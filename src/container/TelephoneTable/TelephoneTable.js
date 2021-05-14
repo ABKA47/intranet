@@ -27,7 +27,6 @@ class TelephoneTable extends Component {
                             <th>Extention</th>
                             <th>Direct Line</th>
                             <th>Location</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -40,7 +39,6 @@ class TelephoneTable extends Component {
                                     <td>{tel.extention}</td>
                                     <td>{tel.directLine}</td>
                                     <td>{tel.location}</td>
-
                                 </tr>
                             ))
                         }

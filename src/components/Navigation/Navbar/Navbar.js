@@ -11,7 +11,7 @@ export default class Navbar extends Component {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <img src={TBlogo} className={classes.AppLogo } alt="tblogo" />
-                    <div className="collapse navbar-collapse" id="navbarNav">
+                    <div className="collapse navbar-collapse ms-3" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>

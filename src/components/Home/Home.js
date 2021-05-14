@@ -3,13 +3,14 @@ import React, { Component } from 'react'
 export default class Home extends Component {
     render() {
         return (
-            <div className="container">
-                <h2>What is this?</h2>
-                <p>This is a list application.</p>
-                <p>An application where you can edit the list you have added and keep records on the database side.</p>
-                <p> This application is a web application written using the ReactJS for front-end,
-                Spring Boot Framework for back-end, SQL Server Management Studio for SQL.</p>
-                <h2>How to</h2>
+            <div>
+                <div className="m-5">
+                    <div className="card">
+                        <div className="card-header">Message from HR!</div>
+                        <h4 className="m-2 card-title">Special title treatment</h4>
+                        <p className="ms-3 card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
             </div>
         )
     }
