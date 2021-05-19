@@ -20,7 +20,7 @@ export default class Navbar extends Component {
                                 <Link className="nav-link" to="/telephonelist">Telephone List</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/notebooklist">Notebook List</Link>
+                                <Link className="nav-link" to="/tbukblog">TBUK Blog</Link>
                             </li>
                         </ul>
                     </div>
