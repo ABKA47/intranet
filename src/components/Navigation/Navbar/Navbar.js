@@ -8,7 +8,7 @@ import classes from './App.css'
 export default class Navbar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar card navbar-expand-lg navbar-light bg-light m-2">
                 <div className="container-fluid">
                     <img src={TBlogo} className={classes.AppLogo } alt="tblogo" />
                     <div className="collapse navbar-collapse ms-3" id="navbarNav">
