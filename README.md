@@ -1,19 +1,7 @@
-# Notebook List App
+  <p align="center">
+    <a href="https://github.com/KlavyedeParmaklar/intranet/issues/new/choose">Report Bug</a>
+    ·
+    <a href="https://github.com/KlavyedeParmaklar/intranet/issues/new/choose">Request Feature</a>
+  </p>
 
-## 
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-<br>
-<br>
-<br>
-
-# Todo List
-
-- Table-a tiklandiginda Model acilacak ve degisiklikler yapilacak
-- AnyDesk ID yanina copy iconu ve fonksiyonu yapilacak
+<!-- [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KlavyedeParmaklar&layout=compact)](https://github.com/anuraghazra/github-readme-stats) -->
