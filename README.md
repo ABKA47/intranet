@@ -5,19 +5,18 @@
 </p>
 
    <p align="center">
-    <a href="">
+    <a href="https://github.com/KlavyedeParmaklar/intranet/issues">
       <img alt="Issues" src="https://img.shields.io/github/issues/KlavyedeParmaklar/intranet?color=red" />
     </a>
-    <a href="https://github.com/anuraghazra/github-readme-stats/pulls">
+    <a href="https://github.com/KlavyedeParmaklar/intranet/pulls">
       <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/KlavyedeParmaklar/intranet?color=0088ff" />
     </a>
   </p>
-  
-  
+  <br>
   <p align="center">
-    <a href="https://github.com/KlavyedeParmaklar/intranet/issues/new/choose">Report Bug</a>
-    ·
-    <a href="https://github.com/KlavyedeParmaklar/intranet/issues/new/choose">Request Feature</a>
+    <a href="https://github.com/KlavyedeParmaklar/intranet/issues/new/choose">
+      <img alt="GitHub pull requests" src="https://img.shields.io/static/v1?label=&message=Report Bug&color=blue"/>
+    </a>
   </p>
 
 <!-- [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KlavyedeParmaklar&layout=compact)](https://github.com/anuraghazra/github-readme-stats) -->
